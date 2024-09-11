@@ -21,7 +21,7 @@ on:
         - guerrillamail
         - developermail
         - mailticking
-        default: developermail
+        default: 1secmail
       key_type:
         description: 'Choose the key type'
         required: true
