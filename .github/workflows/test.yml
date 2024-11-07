@@ -2,7 +2,7 @@ name: Test the project and update the test-date
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 0 */20 * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 jobs:
@@ -18,7 +18,7 @@ jobs:
         run: |
           ACCOUNT=0
           KEY=1
-          SMALL_BUSINESS_KEY=1
+          SMALL_BUSINESS_KEY=0
           EMAIL_API=developermail
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -60,10 +60,3 @@ jobs:
           cd ${{ github.workspace }}
           sed -i '/^ESET-KeyGen - Trial-Key & Account generator/ c\ESET-KeyGen - Trial-Key & Account generator for ESET Antivirus (last test was on '"$(date -u --date='3 hours' +"%d.%m.%Y at %H:%M UTC+3")"')' README.md
           sudo rm -r ESET-KeyGen
-          git pull
-          git commit -m "Update test time" -a
-      - name: Push changes to the repo
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT }}
-          branch: ${{ github.ref }}
