@@ -17,10 +17,12 @@ on:
         type: choice
         options:
         - 1secmail
-        - 10minutemail
         - guerrillamail
         - developermail
         - mailticking
+        - fakemail
+        - inboxes
+        - incognitomail
         default: 1secmail
       key_type:
         description: 'Choose the key type'
